@@ -1,0 +1,255 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.site {
+  display: grid;
+  grid-template-rows: 30% 70%;
+  grid-template-areas: "navigationArea
+                        mainComponents";
+  grid-row-gap: 10%;
+}
+
+#lower-nav-section {
+  width: 100%;
+}
+
+.domain-pic {
+  width: 20%;
+  height: auto;
+}
+
+.navImages {
+  width: 20%;
+  height: auto;
+}
+
+.top-section {
+  position: sticky;
+}
+
+.upper-nav-section {
+  display: grid;
+  grid-template-columns: 15% 17.5% 12% 20% 10%;
+  grid-template-areas: "usernameArea chatTabsFirst notificationHub chatTabsSecond mainSearch";
+  grid-column-gap: 6%;
+}
+
+.username-area {
+  font-size: 45pt;
+  text-shadow: 2px 2px #000000;
+  margin-top: 0;
+  grid-area: usernameArea;
+  align-self: start;
+  justify-self: center;
+}
+
+#chat-tabs-first {
+  grid-area: chatTabsFirst;
+  align-self: center;
+}
+
+#notification-hub {
+  grid-area: notificationHub;
+  align-self: center;
+}
+
+#chat-tabs-second {
+  grid-area: chatTabsSecond;
+  align-self: center;
+}
+
+#main-search {
+  grid-area: mainSearch;
+  align-self: center;
+  justify-self: end;
+}
+
+.chat-panel {
+  height: 400px;
+}
+
+.main-components {
+  margin-top: 2%;
+
+  display: grid;
+  grid-template-columns: 25% 46% 25%;
+  grid-template-areas: "friendsArea ActivityFeed customChallenges";
+  grid-column-gap: 2%;
+}
+
+.connections-list {
+  margin-right: auto;
+  margin-left: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  grid-area: friendsArea;
+}
+
+.connections-heading-container > * {
+  display: inline-block;
+}
+
+#friends-search {
+  width: 145px;
+}
+
+#activity-feed-header {
+  display: grid;
+  grid-template-columns: 25% 55% 15%;
+  grid-template-areas: "activityFeedTitle activityFeedSearch postButton";
+  grid-column-gap: 2.5%;
+}
+
+#activity-feed-title {
+  grid-area: activityFeedTitle;
+}
+
+#activity-feed-search {
+  grid-area: activityFeedSearch;
+  width: 100%;
+}
+
+#create-post {
+  grid-area: postButton;
+  align-self: center;
+  justify-self: start;
+}
+
+#video-post {
+  grid-area: postButton;
+  align-self: center;
+  justify-self: end;
+}
+
+#gameplay-post {
+  grid-area: postButton;
+  align-self: center;
+  justify-self: center;
+}
+
+.middle-component {
+  grid-area: ActivityFeed;
+}
+
+.challenge-panel-container {
+  display: grid;
+  grid-template-columns: 30% 56% 10%;
+  grid-template-areas: "challengeHeading challengeSearch challengeCreateButton";
+  grid-column-gap: 3%;
+}
+
+#create-challenge {
+  grid-area: challengeCreateButton;
+  align-self: start;
+  justify-self: end;
+}
+
+#chall-search {
+  width: 100%;
+  grid-area: challengeSearch;
+}
+
+.custom-challenges {
+  margin-right: 6px;
+  position: -webkit-sticky;
+  position: sticky;
+  grid-area: customChallenges;
+}
+
+.selectFriendsIcons {
+  height: 75px;
+  width: 75px;
+  margin: 10px;
+}
+
+#settings-window {
+  display: grid;
+  grid-template-columns: 15% 83%;
+  grid-template-areas: "settingsTabs activeSettingTab";
+  grid-column-gap: 2%;
+}
+
+#settings-tabs {
+  grid-area: settingsTabs;
+}
+
+.current-setting-tab {
+  grid-area: activeSettingTab;
+}
+
+#chall-head-adj {
+  margin-top: -10px;
+  margin-bottom: -15px;
+}
+
+.challenges-container > * {
+  display: inline-block;
+}
+
+#delete-challenge {
+  float: right;
+}
+
+.challenge-body-container > * {
+  display: inline-block;
+}
+
+#challenge-goal {
+  float: right;
+}
+
+#challenges-body {
+  height: 50%;
+}
+
+#challenge-item {
+  height: 5%;
+}
+
+.advertisement-area {
+  height: auto;
+  width: 200px;
+  margin-right: auto;
+  float: right;
+}
+
+.advertisement {
+  height: auto;
+  width: 325px;
+  margin-left: 5px;
+}
+
+.sponsored-content-area {
+  float: right;
+}
+
+.sponsored-content {
+  height: auto;
+  width: 325px;
+  margin-right: 6px;
+  margin-top: 22px;
+}
+
+.bottom-components > * {
+  margin-top: -50px;
+  display: inline-block;
+}
+
+.cleaning-up {
+  clear: both;
+}
+
+#post-header > * {
+  display: inline-block;
+}
+
+#post-date {
+  float: right;
+}
+
+.module-names {
+  font-size: 15pt;
+}

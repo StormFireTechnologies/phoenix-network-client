@@ -1,0 +1,35 @@
+<section class="custom-challenges">
+  <div class="panel panel-info" id="challenges">
+    <div class="panel-heading">
+      <div class="challenge-panel-container" id="challenge-head-adj">
+        <h3 class="module-names" id="challenge-heading">Challenges</h3>
+        <button class="btn btn-default btn-sm" id="create-challenge">+</button>
+        <challenge-search></challenge-search>
+      </div>
+    </div>
+
+    <div class="list-group" id="challenges-body">
+      <article class="list-group-item" id="challenge-item">
+        <div class="challenges-container">
+          <h4><!-- Challenge Title --></h4>
+          <button type="button" class="close" id="delete-challenge">&times;</button> <!-- This hides the challenge from the list and removes the select participant from the challenge -->
+        </div>
+        <div class="challenge-body-container">
+          <p><!-- Challenge Expiration --></p>
+          <p id="challenge-goal"></p>
+        </div>
+        <div>
+          <p><!-- Challenge Game --></p>
+          <button class="btn btn-default btn-sm"><i class="fa fa-th-large"></i></button> <!-- This expands the challenge so the gamer can see the full challenge details -->
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger" style="width: 40%"></div>
+        </div>
+      </article>
+    </div>
+    <ul class="nav nav-pills">
+      <li>Active <span class="badge"></span></li>
+      <li>Completed <span class="badge"></span></li>
+    </ul>
+  </div>
+</section>

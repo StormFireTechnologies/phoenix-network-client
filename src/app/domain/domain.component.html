@@ -1,0 +1,55 @@
+<div class="site">
+  <div class="top-section" id="header">
+    <div class="upper-nav-section">
+      <h1 class="username-area">{{ domain?.nickname }}</h1>
+      <ul class="nav nav-pills" id="chat-tabs-first">
+        <li><a href="#">Online <span class="badge">5</span></a></li>
+        <li><a href="#">Group <span class="badge">2</span></a></li>
+      </ul>
+
+      <button class="btn btn-default btn-sm" id="notification-hub">Notification Hub <i class="fa fa-globe"></i></button>
+
+      <ul class="nav nav-pills" id="chat-tabs-second">
+        <li><a href="#">Direct Messages <span class="badge">4</span></a></li>
+        <li><a href="#">Legion <span class="badge">31</span></a></li>
+      </ul>
+
+      <form class="navbar-form navbar-right" role="search" id="main-search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Ooooo, Lookie here!">
+        </div>
+      </form>
+    </div>
+
+    <div id="lower-nav-section">
+      <div class="btn-group btn-group-justified">
+        <a routerLink="/domain" class="btn btn-default btn-xs" id="domain-nav-pic"><img src="{{domain?.picture}}" class="avatar" alt="avatar"></a>
+        <a href="#" class="btn btn-default btn-xs" id="legion-nav"><img class="navImages" src="assets/images/navPics/LegionPlaceholder.jpg"/></a>
+        <a href="#" class="btn btn-default btn-xs" id="calendar-nav"><img class="navImages" src="assets/images/navPics/CalendarIcon.jpg"/></a>
+        <a href="#" class="btn btn-default btn-xs" id="settings-nav"><img class="navImages" src="assets/images/navPics/SettingsLogo.jpg"/></a>
+        <a routerLink="/" class="btn btn-default btn-xs" id="logout-nav" (click)="login.logout()"><img class="navImages" src="assets/images/navPics/LogoutLogo.jpg"/></a>
+      </div>
+    </div>
+  </div>
+
+                                      <!-- END OF THE TOP SECTION -->
+
+
+                                      <!-- BEGINING OF THE MAIN COMPONENTS -->
+
+  <div class="main-components">
+    <!-- friends list goes here -->
+    <app-friends></app-friends>
+
+    <section class="middle-component">
+      <div id="modal-destination">
+      </div>
+      <app-activity-feed></app-activity-feed>
+    </section>
+
+    <!-- custom challenges goes here -->
+    <app-challenges></app-challenges>
+
+    <!-- advertising area goes here -->
+  </div>
+</div>
