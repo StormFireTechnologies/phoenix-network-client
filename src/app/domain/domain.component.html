@@ -1,17 +1,17 @@
 <div class="site">
   <div class="top-section" id="header">
     <div class="upper-nav-section">
-      <h1 class="username-area">{{ domain?.nickname }}</h1>
+      <h1 class="username-area">{{ domain?.username }}</h1>
       <ul class="nav nav-pills" id="chat-tabs-first">
-        <li><a href="#">Online <span class="badge">5<!-- This will show the amount of friends online --></span></a></li>
-        <li><a href="#">Group <span class="badge">2 <!-- This will show the amount of gamers in the default group channel --></span></a></li>
+        <li><a href="#" [class.btn.btn-default.btn-sm]="viewMode == onlineChat">Online <span class="badge">5<!-- This will show the amount of friends online --></span></a></li>
+        <li><a href="#" [class.btn.btn-default.btn-sm]="viewMode == groupChat">Group <span class="badge">2 <!-- This will show the amount of gamers in the default group channel --></span></a></li>
       </ul>
 
-      <button class="btn btn-default btn-sm" id="notification-hub">Notification Hub <i class="fa fa-globe"></i></button>
+      <button class="btn btn-default btn-sm" id="notification-hub" (click)="showNotificationHub()">Notification Hub  <i class="fa fa-globe"></i></button>
 
       <ul class="nav nav-pills" id="chat-tabs-second">
-        <li><a href="#">Direct Messages <span class="badge">4 <!-- This will show the total amount of unread direct messages --></span></a></li>
-        <li><a href="#">Legion <span class="badge">31 <!-- This will show the total amount of gamers online that are apart of the same legion --></span></a></li>
+        <li><a href="#" [class.btn.btn-default.btn-sm]="viewMode == directMessages">Direct Messages <span class="badge">4 <!-- This will show the total amount of unread direct messages --></span></a></li>
+        <li><a href="#" [class.btn.btn-default.btn-sm]="viewMode == legionChat">Legion <span class="badge">31 <!-- This will show the total amount of gamers online that are apart of the same legion --></span></a></li>
       </ul>
 
       <form class="navbar-form navbar-right" role="search" id="main-search">
@@ -23,7 +23,7 @@
 
     <div id="lower-nav-section">
       <div class="btn-group btn-group-justified">
-        <a routerLink="/domain" class="btn btn-default btn-xs" id="domain-nav-pic"><img src="{{domain?.picture}}" class="avatar" alt="avatar"></a>
+        <a routerLink="/domain" class="btn btn-default btn-xs" id="domain-pic"><img src="{{domain?.domainPic}}" class="navImages avatar" alt="avatar"></a>
         <a href="#" class="btn btn-default btn-xs" id="legion-nav"><img class="navImages" src="assets/images/navPics/LegionPlaceholder.jpg"/></a>
         <a href="#" class="btn btn-default btn-xs" id="calendar-nav"><img class="navImages" src="assets/images/navPics/CalendarIcon.jpg"/></a>
         <a href="#" class="btn btn-default btn-xs" id="settings-nav"><img class="navImages" src="assets/images/navPics/SettingsLogo.jpg"/></a>
