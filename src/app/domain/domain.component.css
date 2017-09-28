@@ -115,19 +115,13 @@
 #create-post {
   grid-area: postButton;
   align-self: center;
-  justify-self: start;
-}
-
-#video-post {
-  grid-area: postButton;
-  align-self: center;
-  justify-self: end;
+  justify-self: center;
 }
 
 #gameplay-post {
   grid-area: postButton;
   align-self: center;
-  justify-self: center;
+  justify-self: end;
 }
 
 .middle-component {
