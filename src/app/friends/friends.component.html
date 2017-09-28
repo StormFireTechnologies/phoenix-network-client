@@ -10,12 +10,24 @@
     </div>
 
     <div class="list-group" id="friends-list-group">
-      <article class="list-group-item">
-        <img></img>
-        <h4 class="list-group-item-heading"></h4>
-        <p class="btn btn-success btn-xs">Online</p>
+      <article class="list-group-item" id="friend-tile" *ngIf="friends">
+        <div class="top-friend-items">
+          <img id="friendImageSpot" src="{{friend?.image}}">
+          <h5 id="friendUsernameSpot" class="list-group-item-heading">{{friend?.username}}</h5>
+          <button id="friendOptionsSpot" class="btn btn-default btn-xs"><i class="fa fa-ellipsis-h"></i></button>
+        </div>
+        <div class="bottom-friend-items">
+          <p id="friendStatusSpot" class="btn btn-success btn-xs">{{friend?.status}}</p>
+        </div>
       </article>
     </div>
+
+    <ul class="nav nav-pills">
+      <li><button class="btn btn-default btn-xs">Online <span class="badge">{{friends?.online}}</span></button></li>
+      <li><button class="btn btn-default btn-xs">Group <span class="badge">{{group?.onlineMembers}}</span></button></li>
+      <li><button class="btn btn-default btn-xs">All Friends <span class="badge">{{friends?.allFriends}}</span></button></li>
+      <li><button class="btn btn-default btn-xs">Legion <span class="badge">{{legion?.onlineMembers}}</span></button></li>
+    </ul>
 
     <!-- Add in the tabs for group, legion, and online -->
     <!-- Add in the functionality for switching between the tabs -->
