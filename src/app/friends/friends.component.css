@@ -1,0 +1,41 @@
+#friends-list-group {
+  height: 400px;
+}
+
+#friend-tile {
+  height: 75px;
+}
+
+.top-friend-items {
+  display: grid;
+  grid-template-columns: 10% 20% 10%;
+  grid-template-areas: "friendImage friendUsername friendOptions";
+  grid-column-gap: 30%;
+}
+
+#friendImageSpot {
+  grid-area: friendImage;
+  height: 35px;
+  width: auto;
+}
+
+#friendUsernameSpot {
+  grid-area: friendUsername;
+  justify-self: center;
+}
+
+#friendOptionsSpot {
+  grid-area: friendOptions;
+  height: 25px;
+}
+
+.bottom-friend-items {
+  display: grid;
+  grid-template-columns: 10% 40% 20%;
+  grid-template-areas: "bufferSpace friendStatus friendInGame";
+  grid-column-gap: 20%;
+}
+
+#friendStatusSpot {
+  grid-area: friendStatus;
+}
