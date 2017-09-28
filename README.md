@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # PhoenixNetwork
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
@@ -26,3 +27,7 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+=======
+# phoenix-network-client
+This is all the client side code for the Phoenix Network
+>>>>>>> 2411b228b6dd3308b60726dc7d557a9992f53ee5
