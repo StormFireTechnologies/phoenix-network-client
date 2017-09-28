@@ -2,9 +2,21 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import * as auth0 from 'auth0-js';
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag';
 
 @Injectable()
 export class LoginService {
+  mutation = gql`
+    mutation createGamer($gamer: GamerInput!) {
+      createGamer(gamer: $gamer) {
+        id
+        username
+        domainPic
+        isNewGamer
+      }
+    }
+  `;
 
   auth0 = new auth0.WebAuth({
     clientID: 'IIofmCiOFCYNNyTuqg40K5ClB1r9GEhU',
@@ -15,7 +27,7 @@ export class LoginService {
     scope: 'openid profile'
   })
 
-  constructor(public router: Router) {}
+  constructor(public router: Router, public apollo: Apollo) {}
 
   public login(): void {
     this.auth0.authorize();
@@ -26,6 +38,9 @@ export class LoginService {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
         this.setSession(authResult);
+        this.getProfile((err, profile) => {
+          this.gamerProfile = profile
+        });
         this.router.navigate(['/domain/${authResult.id_token}']);
       } else if (err) {
         this.router.navigate(['/']);
@@ -34,7 +49,7 @@ export class LoginService {
     });
   }
 
-  gamerProfile;
+  gamerProfile: any;
 
   private setSession(authResult): void {
     // Set the time that the access token will expire at
@@ -69,6 +84,21 @@ export class LoginService {
     this.auth0.client.userInfo(accessToken, (err, profile) => {
       if (profile) {
         self.gamerProfile = profile;
+        this.apollo.mutate({
+          mutation: this.mutation,
+          variables: {
+            gamer: {
+              id: profile.sub,
+              username: profile.nickname,
+              domainPic: profile.picture,
+              isNewGamer: false,
+            }
+          }
+        }).subscribe(({ data }) => {
+          console.log('Sent data: ', data);
+        }, (error) => {
+          console.log('There was an error sending the mutation: ', error);
+        });
       }
       cb(err, profile);
     });
