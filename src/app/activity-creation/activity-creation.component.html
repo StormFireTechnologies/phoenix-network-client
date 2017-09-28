@@ -1,0 +1,39 @@
+<div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" id="activityOptions">
+        <button type="button" class="btn btn-primary" [class.active]="activityType === post" id="post" name="postButton" (click)="setPostType($event)">POST</button>
+        <div class="btn-group btn-group-justified post-options">
+          <button type="button" class="btn btn-default btn-sm" name="emojiToggle"></button>
+          <button type="button" class="btn btn-default btn-sm" name="pictureToggle"><i class="fa fa-picture-o"></i></button>
+          <button type="button" class="btn btn-default btn-sm" name="videoToggle"><i class="fa fa-video-camera"></i></button>
+          <button type="button" class="btn btn-default btn-sm" name="mentionToggle">@</button>
+        </div>
+        <button type="button" class="btn btn-primary" [class.active]="activityType === gameplay" id="gameplay" name="gameplayButton" (click)="setPostType($event)">Gameplay</button>
+      </div>
+
+      <fancy-image-uploader [options]="imgOptions" (onUpload)="onUpload($event)"></fancy-image-uploader>
+
+      <div class="modal-body">
+        <emoji-input
+          [(model)]="emoji"
+          [textArea]="{cols: 40, rows: 5}"
+          [popupAnchor]="'top'"
+          (setPopupAction)="setPopupAction()"
+        >
+      </emoji-input>
+        <br>
+      </div>
+
+      <form #activityForm="ngForm" (ngSubmit)="addActivity(activityForm)">
+        <div class="modal-body">
+            <textarea ngModel required maxlength="250"  name="content" #activityInput="ngModel" rows="7" cols="67" placeholder="What's Up?"></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" name="submitActivity" [disabled]="!activityForm.valid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

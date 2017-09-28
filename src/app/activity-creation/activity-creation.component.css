@@ -1,0 +1,17 @@
+#activityOptions {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-areas: "post postOptions gameplay";
+}
+
+#post {
+  grid-area: post;
+}
+
+.post-options {
+  grid-area: postOptions;
+}
+
+#gameplay {
+  grid-area: gameplay;
+}
