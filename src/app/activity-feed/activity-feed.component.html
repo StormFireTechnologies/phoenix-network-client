@@ -1,11 +1,44 @@
 <div class="panel panel-info">
   <div class="panel-heading" id="activity-feed-header">
     <h3 class="module-names" id="activity-feed-title">Activity Feed</h3>
-    <button class="btn btn-default-xs" id="create-post"><i class="fa fa-pencil-square-o"></i></button>
-    <button class="btn btn-default-xs" id="gameplay-post"><i class="fa fa-map"></i></button>
-    <button class="btn btn-default-xs" id="video-post"><i class="fa fa-video-camera"></i></button>
+    <button class="btn btn-default btn-xs" id="create-post" (click)="createActivity('post')"><i class="fa fa-pencil-square-o"></i></button>
+    <button class="btn btn-default btn-xs" id="gameplay-post" (click)="createActivity('gameplay')"><i class="fa fa-map"></i></button>
     <activity-search></activity-search>
   </div>
 
-  <ul id="domain_activity_stream" class="activity-stream"></ul>
+  <article class="panel panel-default" *ngFor="let activity of activities">
+    <div class="panel panel-heading" id="post-header">
+      <a href="#">Saviodo</a>
+      <p id="post-date">{{activity?.createdAt}}</p>
+      <button (click)="removeActivity(activity.activityId)" class="btn btn-primary btn-xs">&times;</button>
+      <button (click)="updateActivity(activity.activityId)" class="btn btn-primary btn-xs">...</button>
+    </div>
+
+    <div class="panel-body">
+      <p>{{activity?.content}}</p>
+    </div>
+
+    <div class="panel-body">
+      <button class="btn btn-default btn-xs" (click)="voteActivity(1, activity.activityId)"><i class="fa fa-thumbs-up"></i> <span class="badge">{{activity?.likes.length}}</span></button>
+      <button class="btn btn-default btn-xs" (click)="dislikeActivity(-1, activity.activityId)"><i class="fa fa-thumbs-down"></i> <span class="badge">{{activity?.dislikes.length}}</span></button>
+      <button class="btn btn-default btn-xs" (click)="showComments(isViewingComments)"><i class="fa fa-comment-o"></i> <span class="badge">{{activity?.comments.length}}</span></button>
+      <button class="btn btn-default btn-xs" (click)="shareActivity(activity.activityId)"><i class="fa fa-share-square-o"></i> <span class="badge">{{activity?.shares.length}}</span></button>
+    </div>
+
+    <div class="panel-footer" *ngIf="isViewingComments">
+      <div *ngFor="let comment of activity.comments">
+        <p>{{comment?.content}}</p>
+      </div>
+
+      <form #commentForm="ngForm" (ngSubmit)="commentActivity(commentForm, activity.activityId)">
+        <div class="form-group">
+          <div class="col-lg-10">
+            <input type="text" name="content" ngModel #inputComment="ngModel" class="form-control" id="inputComment" placeholder="comment" autocomplete="off">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-xs" name="submitComment">Comment</button>
+      </form>
+    </div>
+  </article>
 </div>
