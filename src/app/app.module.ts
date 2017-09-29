@@ -1,15 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AngularWormholeModule } from 'angular-wormhole';
 import { ApolloClient, createNetworkInterface } from 'apollo-client';
 import { ApolloModule } from 'apollo-angular';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FancyImageUploaderModule } from 'ng2-fancy-image-uploader';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { DateTimePickerModule } from 'ng-pick-datetime';
-import { EmojiPickerModule } from 'ng-emoji-picker';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -84,13 +82,11 @@ export function provideClient(): ApolloClient {
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
-    AngularWormholeModule,
     ApolloModule.forRoot(provideClient),
     FormsModule,
+    ReactiveFormsModule,
     FancyImageUploaderModule,
     BootstrapModalModule,
-    DateTimePickerModule,
-    EmojiPickerModule
   ],
   entryComponents: [
     ActivityCreationComponent,
