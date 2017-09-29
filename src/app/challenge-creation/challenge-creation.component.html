@@ -9,44 +9,42 @@
       <div class="modal-body">
         <div class="form-group">
           <label for="inputTitle" class="control-label">Title</label>
-          <input type="text" class="form-control" id="inputTitle" placeholder="Challenge Title" autocomplete="off" ngModel name="challengeTitle" #challengeTitle="ngModel">
+          <input type="text" class="form-control" id="inputTitle" placeholder="Challenge Title" autocomplete="off" ngModel name="title" #challengeTitle="ngModel">
         </div>
 
         <div class="form-group">
           <label for="inputGame" class="control-label">Select Game</label>
-          <input type="text" class="form-control" id="inputGame" placeholder="Select game" autocomplete="off" ngModel name="challengeGame" #selectGame="ngModel">
+          <input type="text" class="form-control" id="inputGame" placeholder="Select game" autocomplete="off" ngModel name="game" #challengeGame="ngModel">
         </div>
 
         <div class="form-group">
-          <label for="inputChallengeTime" class="control-label">Challenge Time</label>
-          <owl-date-time id="inputChallengeTime" ngModel name="timer" #inputChallengeTime="ngModel" type="timer" inline="true"></owl-date-time>
+          <label for="inputObjective" class="control-label">Objective</label>
+          <input type="text" class="form-control" name="objective" ngModel #objective="ngModel" id="inputObjective">
         </div>
-
-        <br>
 
         <div class="form-group">
           <label for="inputChallengeGoal" class="control-label">Challenge Goal</label>
-          <input type="text" class="form-control" id="inputChallengeGoal" name="challengeGoal" ngModel #goal="ngModel">
+          <input type="text" class="form-control" id="inputChallengeGoal" name="goal" ngModel #challengeGoal="ngModel">
         </div>
 
         <div class="form-group">
           <label for="inputParticipants" class="control-label">Participants</label>
-          <input type="text" class="form-control" id="inputParticipants" name="challengeParticipants" ngModel #participants="ngModel">
+          <input type="text" class="form-control" id="inputParticipants" name="participants" ngModel #challengeParticipants="ngModel">
         </div>
 
         <div class="form-group">
           <label for="inputPlacements" class="control-label">Placements</label>
-          <input type="text" class="form-control" id="inputPlacements" name="challengePlacements" ngModel #placements="ngModel">
+          <input type="text" class="form-control" id="inputPlacements" name="placements" ngModel #challengePlacements="ngModel">
         </div>
 
         <div class="form-group">
           <label for="inputRewards" class="control-label">Rewards</label>
-          <input type="text" class="form-control" id="inputRewards" name="challengeRewards" ngModel #rewards="ngModel">
+          <input type="text" class="form-control" id="inputRewards" name="rewards" ngModel #challengeRewards="ngModel">
         </div>
       </div>
 
       <div class="modal-footer">
-        <button class="btn btn-primary" type="submit">Create <i class="fa fa-arrow-circle-right"></i></button>
+        <button class="btn btn-primary" type="submit" name="createChallenge">Create <i class="fa fa-arrow-circle-right"></i></button>
       </div>
     </div>
   </div>
