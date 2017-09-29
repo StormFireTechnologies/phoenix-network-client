@@ -10,6 +10,8 @@ import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 import { DateTimePickerModule } from 'ng-pick-datetime';
 
 import { AppComponent } from './app.component';
+import { OktaAuthGuard } from './app.guard';
+import { LoginService } from './login/login.service';
 import { LoginComponent } from './login/login.component';
 import { CallbackComponent } from './callback/callback.component';
 import { DomainComponent } from './domain/domain.component';
@@ -26,11 +28,11 @@ import { NotificationHubComponent } from './notification-hub/notification-hub.co
 
 const appRoutes: Routes = [
   { path: 'login',      component: LoginComponent },
-  { path: 'domain/:id', component: DomainComponent },
+  { path: 'domain/:id', component: DomainComponent, canActivate: [ OktaAuthGuard ] },
   { path: 'callback',   component: CallbackComponent }
 ];
 
-/*
+
 const networkInterface = createNetworkInterface('http://localhost:8080/graph');
 
 networkInterface.use([{
@@ -39,7 +41,7 @@ networkInterface.use([{
       req.options.headers = {};
     }
 
-    req.options.headers.authorization = localStorage.getItem('id_token') || null;
+    req.options.headers.authorization = localStorage.getItem('access_token') || null;
     next();
   }
 }]);
@@ -47,13 +49,15 @@ networkInterface.use([{
 const client = new ApolloClient({
   networkInterface,
 });
-*/
 
+
+/*
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
     uri: 'http://localhost:8080/graph'
   }),
 });
+*/
 
 export function provideClient(): ApolloClient {
   return client;
@@ -79,8 +83,7 @@ export function provideClient(): ApolloClient {
   imports: [
     BrowserModule,
     RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      appRoutes
     ),
     ApolloModule.forRoot(provideClient),
     FormsModule,
@@ -93,7 +96,7 @@ export function provideClient(): ApolloClient {
     NotificationHubComponent,
     ChallengeCreationComponent
   ],
-  providers: [],
+  providers: [LoginService, OktaAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

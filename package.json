@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "@okta/okta-signin-widget": "^2.1.0",
     "angular-modal-service": "^0.12.1",
     "angular-wormhole": "^1.1.4",
     "angular2-uuid": "^1.1.1",

@@ -10,7 +10,5 @@ import { LoginService } from './login/login.service';
 export class AppComponent {
   title = 'Phoenix Network';
 
-  constructor(public auth: LoginService) {
-    auth.handleAuthentication();
-  }
+  constructor(public signIn: LoginService) {}
 }
