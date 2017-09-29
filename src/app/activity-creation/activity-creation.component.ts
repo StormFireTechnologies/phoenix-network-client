@@ -56,7 +56,6 @@ export class ActivityCreationComponent extends DialogComponent<confirmActivityMo
       createdAt: Date(),
       activityType: this.activityType,
       activityId: this.uuid,
-      votes: 0,
       creator: "auth0|597d8e5a497425796a831983",
     };
 
@@ -70,12 +69,6 @@ export class ActivityCreationComponent extends DialogComponent<confirmActivityMo
   confirm() {
     this.result = true;
     this.close();
-  }
-
-  public openPopup: Function;
-
-  setPopupAction(fn: any) {
-    this.openPopup = fn;
   }
 
 }
