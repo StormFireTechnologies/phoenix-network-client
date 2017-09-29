@@ -28,7 +28,7 @@ import { NotificationHubComponent } from './notification-hub/notification-hub.co
 
 const appRoutes: Routes = [
   { path: 'login',      component: LoginComponent },
-  { path: 'domain/:id', component: DomainComponent, canActivate: [ OktaAuthGuard ] },
+  { path: 'domain/:id', component: DomainComponent },
   { path: 'callback',   component: CallbackComponent }
 ];
 
