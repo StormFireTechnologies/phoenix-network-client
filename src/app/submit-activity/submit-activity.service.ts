@@ -11,7 +11,6 @@ export class SubmitActivityService {
         createdAt
         activityType
         activityId
-        votes
         creator
       }
     }`;
